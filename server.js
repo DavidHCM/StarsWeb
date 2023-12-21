@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const Swal = require('sweetalert2')
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = process.env.PORT ||  3000;
@@ -19,6 +20,7 @@ app.use(cors({
 const router = require('./routes/router.js');
 
 app.use('/', router);
+app.use(cookieParser());
 
 app.listen(port, () =>
 {
