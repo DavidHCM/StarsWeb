@@ -1,11 +1,16 @@
+const xhr = new XMLHttpRequest();
+const isDevice = /iPhone|iPad|iPod|Android|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+const pageProgram = document.getElementById('pageProgram');
 
-function identifier()
-{
-    var isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Windows Phone/i.test(navigator.userAgent);
 
-    if (isMobile) {
-        console.log("User is using a mobile device");
-    } else {
-        console.log("User is using a computer");
-    }
+function getBaseURL() {
+    return window.location.origin;
 }
+
+pageProgram.addEventListener('click', () =>
+{
+    const baseURL = getBaseURL();
+    window.location.href = `${baseURL}/stargaze`;
+});
+
+
